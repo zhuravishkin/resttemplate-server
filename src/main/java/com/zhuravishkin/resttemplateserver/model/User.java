@@ -11,6 +11,7 @@ import lombok.Setter;
 public class User {
     @JsonProperty("tuple_name")
     private String name;
+
     @JsonProperty("tuple_age")
     private int age;
 }
