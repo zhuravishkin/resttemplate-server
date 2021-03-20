@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "template")
+@RequestMapping(value = "server")
 public class Controller {
     @GetMapping(value = "/get")
     public ResponseEntity<User> get() {
