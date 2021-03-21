@@ -15,6 +15,6 @@ public class WebfluxRouter {
     public RouterFunction<ServerResponse> route(WebfluxHandler handler) {
         return RouterFunctions
                 .route(RequestPredicates.GET("/webflux")
-                        .and(RequestPredicates.accept(MediaType.TEXT_PLAIN)), handler::webfluxHandler);
+                        .and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::webfluxHandler);
     }
 }
