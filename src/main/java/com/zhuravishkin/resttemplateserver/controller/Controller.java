@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 
 @Slf4j
 @RestController
@@ -19,9 +20,12 @@ public class Controller {
     }
 
     @GetMapping(value = "/get")
-    public ResponseEntity<User> get() {
-        User user = new User("Sam", 30);
-        return new ResponseEntity<>(user, HttpStatus.OK);
+    public Flux<User> get(
+            @RequestParam(defaultValue = "nobody") String user,
+            @RequestParam(defaultValue = "0") String age) {
+        User tuple = new User(user, Integer.parseInt(age));
+
+        return Flux.just(tuple);
     }
 
     @PostMapping(value = "/post")
